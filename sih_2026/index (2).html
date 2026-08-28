@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriConnect – AI-Powered Smart Agriculture Platform</title>
+  <meta name="description" content="AI-Powered Smart Agriculture Platform designed to empower farmers with multilingual decision support, all-India state/district location scanning, Agmarknet Mandi market price prediction, 30+ crop pathology catalog, real-time live AI weather analysis, AI computer vision camera pathology scanning, farm risk prediction, and Akinator-style crop disease diagnostics.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Header Navigation -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-logo">🌾</div>
+      <div>
+        <h1 class="brand-title" data-i18n="appTitle">AgriConnect</h1>
+        <p class="brand-subtitle" data-i18n="appSubtitle">AI-Powered Smart Agriculture Platform</p>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <ul class="nav-links">
+        <li><a href="#farmSetupSection" data-i18n="navHome">Farm Setup</a></li>
+        <li><a href="#weatherSection" data-i18n="navWeather">AI Live Weather</a></li>
+        <li><a href="#marketPredictorSection" data-i18n="navMarket">Market Predictor</a></li>
+        <li><a href="#visionScannerSection" data-i18n="navVision">AI Vision Scanner</a></li>
+        <li><a href="#riskSection" data-i18n="navAnalysis">Risk Analysis</a></li>
+        <li><a href="#akinatorSection" data-i18n="navAkinator">Disease Akinator</a></li>
+        <li><a href="#futureSection" data-i18n="navFuture">Future Scope</a></li>
+      </ul>
+
+      <!-- Language Selector Switcher Pills -->
+      <div class="lang-switcher-bar" id="langSwitcherBar">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="te">తెలుగు</button>
+        <button class="lang-btn" data-lang="hi">हिन्दी</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+      <h2 class="hero-title" data-i18n="appTitle">AgriConnect</h2>
+      <p class="hero-lead" data-i18n="appSubtitle">Empowering farmers across all Indian States, Districts & Mandis with Agmarknet Market Price Scan, 30-Day Trend Forecasting, AI Weather Telemetry, and Leaf Pathology Scan.</p>
+      
+      <div class="hero-tags">
+        <span class="hero-chip">📈 Agmarknet Mandi Price Predictor</span>
+        <span class="hero-chip">🔮 30-Day Price Trend Forecasting</span>
+        <span class="hero-chip">🌾 35+ All-India Crop Productions</span>
+        <span class="hero-chip">🌐 All-India State & District Coverage</span>
+        <span class="hero-chip">🗣️ Multilingual (EN / TE / HI)</span>
+        <span class="hero-chip">📷 AI Vision Live Camera Scanner</span>
+      </div>
+    </section>
+
+    <!-- Farmer & Farm Profile Input Section with All-India State, District & Comprehensive Crop Selector -->
+    <section id="farmSetupSection" class="glass-card">
+      <h3 class="section-title" data-i18n="farmerSectionTitle">Farmer & Farm Profile</h3>
+      <p class="section-desc" data-i18n="farmerSectionDesc">Select any State, District, and Crop from across India to run an instant AI location scan and climate advisory.</p>
+
+      <form id="farmProfileForm" class="form-grid">
+        
+        <!-- State Selector -->
+        <div class="form-group">
+          <label for="stateSelect" data-i18n="selectStateLabel">Select State / Union Territory</label>
+          <select id="stateSelect" class="form-select" required>
+            <!-- Populated dynamically by app.js from indiaLocations.js -->
+          </select>
+        </div>
+
+        <!-- District Selector -->
+        <div class="form-group">
+          <label for="districtSelect" data-i18n="selectDistrictLabel">Select District</label>
+          <select id="districtSelect" class="form-select" required>
+            <!-- Populated dynamically based on selected State -->
+          </select>
+        </div>
+
+        <!-- Crop Select (Comprehensive All-India Catalog) -->
+        <div class="form-group">
+          <label for="cropSelect" data-i18n="cropLabel">Select Crop Type</label>
+          <select id="cropSelect" class="form-select" required>
+            <optgroup label="Cereals & Grains">
+              <option value="rice" selected>Paddy / Rice (వరి / धान)</option>
+              <option value="wheat">Wheat (గోధుమ / गेहूं)</option>
+              <option value="maize">Maize / Corn (మొక్కజొన్న / मक्का)</option>
+              <option value="bajra">Bajra / Pearl Millet (సజ్జలు / बाजरा)</option>
+              <option value="jowar">Jowar / Sorghum (జొన్నలు / ज्वार)</option>
+              <option value="ragi">Ragi / Finger Millet (రాగులు / रागी)</option>
+              <option value="barley">Barley (బార్లీ / जौ)</option>
+            </optgroup>
+
+            <optgroup label="Cash & Commercial Crops">
+              <option value="cotton">Cotton (ప్రత్తి / कपास)</option>
+              <option value="sugarcane">Sugarcane (చెరకు / गन्ना)</option>
+              <option value="jute">Jute (జనపనార / पटसन)</option>
+              <option value="tobacco">Tobacco (పొగాకు / तंबाकू)</option>
+            </optgroup>
+
+            <optgroup label="Vegetables">
+              <option value="tomato">Tomato (టమాటా / टमाटर)</option>
+              <option value="potato">Potato (బంగాళాదుంప / आलू)</option>
+              <option value="onion">Onion (ఉల్లిపాయ / प्याज)</option>
+              <option value="brinjal">Brinjal / Eggplant (వంకాయ / बैंगन)</option>
+              <option value="okra">Okra / Lady Finger (బెండకాయ / भिंडी)</option>
+              <option value="cabbage">Cabbage / Cauliflower (క్యాబేజీ / గోభీ)</option>
+              <option value="cucumber">Cucumber / Gourds (దోసకాయ / खीरा)</option>
+            </optgroup>
+
+            <optgroup label="Spices & Commercial Horticulture">
+              <option value="chilli">Chilli (మిరప / मिर्च)</option>
+              <option value="turmeric">Turmeric (పసుపు / हल्दी)</option>
+              <option value="ginger">Ginger (అల్లం / अदरक)</option>
+              <option value="garlic">Garlic (వెల్లుల్లి / लहसुन)</option>
+              <option value="pepper">Black Pepper (మిరియాలు / काली मिर्च)</option>
+            </optgroup>
+
+            <optgroup label="Pulses & Oilseeds">
+              <option value="chickpea">Chickpea / Gram (శనగలు / चना)</option>
+              <option value="pigeonpea">Pigeon Pea / Red Gram (కందులు / अरहर/तूर)</option>
+              <option value="greengram">Green Gram (పెసలు / मूंग)</option>
+              <option value="blackgram">Black Gram (మినుములు / उड़द)</option>
+              <option value="groundnut">Groundnut / Peanut (వేరుశనగ / मूंगफली)</option>
+              <option value="soybean">Soybean (సోయాబీన్ / सोयाबीन)</option>
+              <option value="mustard">Mustard / Rapeseed (ఆవాలు / सरसों)</option>
+            </optgroup>
+
+            <optgroup label="Fruits & Plantation">
+              <option value="mango">Mango (మామిడి / आम)</option>
+              <option value="banana">Banana (అరటి / केला)</option>
+              <option value="citrus">Citrus / Sweet Lime (బత్తాయి/నిమ్మ / नींबू)</option>
+              <option value="papaya">Papaya (బొప్పాయి / पपीता)</option>
+              <option value="pomegranate">Pomegranate (దానిమ్మ / अनार)</option>
+              <option value="apple">Apple (యాపిల్ / सेब)</option>
+              <option value="coconut">Coconut (కొబ్బరి / नारियल)</option>
+              <option value="tea">Tea / Coffee (టీ / కాఫీ / चाय)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Soil Select -->
+        <div class="form-group">
+          <label for="soilSelect" data-i18n="soilLabel">Select Soil / Land Type</label>
+          <select id="soilSelect" class="form-select" required>
+            <option value="black">Black Soil (నల్ల రేగడి నేల / काली मिट्टी)</option>
+            <option value="red">Red Soil (ఎర్ర నేల / लाल मिट्टी)</option>
+            <option value="alluvial">Alluvial Soil (ఒండ్రు నేల / जलोढ़ मिट्टी)</option>
+            <option value="sandy">Sandy Loam (ఇసుక నేల / बलुई मिट्टी)</option>
+            <option value="clay">Clay Soil (జిగట నేల / चिकनी मिट्टी)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="grid-column: 1 / -1; margin-top: 1rem;">
+          <button type="submit" class="btn btn-primary pulse-btn" id="analyzeBtn" data-i18n="runLocationScanBtn">
+            📡 Run AI Location & Soil-Climate Scan ⚡
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Real-Time AI Weather & Climate Section -->
+    <section id="weatherSection" class="glass-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 class="section-title" data-i18n="liveWeatherTitle">Real-Time AI Weather & Climate Analyzer</h3>
+          <p class="section-desc" data-i18n="liveWeatherSubtitle">Hyper-local live weather telemetry combined with AI microclimate pathology alerts for your exact farm coordinates.</p>
+        </div>
+        <button id="detectGpsBtn" class="btn btn-secondary" data-i18n="detectLocationBtn">📍 Detect My Live GPS Location</button>
+      </div>
+
+      <div class="weather-search-bar">
+        <input type="text" id="weatherCityInput" class="form-control" placeholder="Search exact city or district (e.g. Guntur, Warangal, Khanna, Jaipur, Ludhiana...)" data-i18n-ph="locationPlaceholder">
+        <button id="searchWeatherBtn" class="btn btn-primary">Search Weather 📡</button>
+      </div>
+
+      <p id="weatherStatusMsg" style="font-size: 0.85rem; color: #38bdf8; margin-top: -0.5rem;"></p>
+
+      <div id="liveWeatherDisplay">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- AI Mandi Market Price Predictor & Arbitrage Section -->
+    <section id="marketPredictorSection" class="glass-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 class="section-title" data-i18n="marketTitle">AI Mandi Market Price Predictor & Arbitrage</h3>
+          <p class="section-desc" data-i18n="marketSubtitle">Search any crop, state, and mandi to get real-time commodity prices, state averages, and 30-day AI price trend forecasts.</p>
+        </div>
+      </div>
+
+      <form id="marketSearchForm" class="form-grid" style="margin-bottom: 2rem;">
+        <!-- Crop Select -->
+        <div class="form-group">
+          <label for="marketCropSelect" data-i18n="cropLabel">Select Crop</label>
+          <select id="marketCropSelect" class="form-select" required>
+            <option value="chilli">Chilli (మిరప / मिर्च)</option>
+            <option value="cotton">Cotton (ప్రత్తి / कपास)</option>
+            <option value="rice">Paddy / Rice (వరి / धान)</option>
+            <option value="wheat">Wheat (గోధుమ / गेहूं)</option>
+            <option value="tomato">Tomato (టమాటా / टमाटर)</option>
+            <option value="potato">Potato (బంగాళాదుంప / आलू)</option>
+            <option value="onion">Onion (ఉల్లిపాయ / प्याज)</option>
+            <option value="sugarcane">Sugarcane (చెరకు / गन्ना)</option>
+            <option value="groundnut">Groundnut / Peanut (వేరుశనగ / मूंगफली)</option>
+            <option value="soybean">Soybean (సోయాబీన్ / सोयाबीन)</option>
+            <option value="turmeric">Turmeric (పసుపు / हल्दी)</option>
+            <option value="mango">Mango (మామిడి / आम)</option>
+            <option value="banana">Banana (అరటి / केला)</option>
+            <option value="chickpea">Chickpea / Gram (శనగలు / चना)</option>
+          </select>
+        </div>
+
+        <!-- State Select -->
+        <div class="form-group">
+          <label for="marketStateSelect" data-i18n="selectStateLabel">Select State</label>
+          <select id="marketStateSelect" class="form-select" required>
+            <!-- Populated dynamically by app.js -->
+          </select>
+        </div>
+
+        <!-- Mandi District Select -->
+        <div class="form-group">
+          <label for="marketDistrictSelect" data-i18n="selectDistrictLabel">Select District / Mandi Market</label>
+          <select id="marketDistrictSelect" class="form-select" required>
+            <!-- Populated dynamically by app.js -->
+          </select>
+        </div>
+
+        <div class="form-group" style="grid-column: 1 / -1; margin-top: 0.5rem;">
+          <button type="submit" class="btn btn-primary pulse-btn" id="searchMarketBtn" data-i18n="searchMarketBtn">
+            📈 Run AI Mandi Price Scan & 30-Day Forecast ⚡
+          </button>
+        </div>
+      </form>
+
+      <div id="marketOutputDisplay">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- AI Computer Vision Pathology Scanner Section -->
+    <section id="visionScannerSection" class="glass-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 class="section-title" data-i18n="visionTitle">AI Computer Vision Pathology Scanner</h3>
+          <p class="section-desc" data-i18n="visionSubtitle">Use your device camera or upload a leaf photo for real-time deep learning neural network pathology analysis.</p>
+        </div>
+        <div class="btn-group-center" style="margin: 0;">
+          <button id="startCameraBtn" class="btn btn-primary pulse-btn" data-i18n="startCameraBtn">📷 Start Live Camera Scan</button>
+          <button id="stopCameraBtn" class="btn btn-secondary hidden" data-i18n="stopCameraBtn">🛑 Stop Camera</button>
+          <button id="capturePhotoBtn" class="btn btn-primary hidden" data-i18n="capturePhotoBtn">📸 Capture & Analyze Leaf</button>
+        </div>
+      </div>
+
+      <p id="cameraStatusMsg" style="font-size: 0.85rem; color: #f43f5e; margin-top: 0.5rem;"></p>
+
+      <!-- Live Video Feed Container -->
+      <div id="cameraContainer" class="camera-wrapper hidden">
+        <video id="visionWebcam" class="webcam-feed" autoplay playsinline></video>
+        <div class="vision-reticle">
+          <span class="reticle-label" data-i18n="alignLeafGuide">Align affected leaf inside reticle</span>
+        </div>
+      </div>
+      <canvas id="visionCanvas" style="display: none;"></canvas>
+
+      <!-- Photo File Upload Area -->
+      <input type="file" id="leafFileInput" accept="image/*" style="display: none;">
+      
+      <div class="upload-drop-zone" id="uploadArea" style="margin-top: 1.5rem;">
+        <div class="upload-icon">📷🍃</div>
+        <h4 data-i18n="uploadBoxTitle">Click or Drag & Drop Leaf Image Here</h4>
+        <p style="color: var(--text-muted);" data-i18n="uploadBoxSubtitle">Supports JPG, PNG, WEBP (Max 10MB)</p>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <p style="font-weight: 600; font-size: 0.95rem;" data-i18n="orSelectPreset">Or try sample leaf photos:</p>
+        <div class="sample-leaves-grid">
+          <div class="sample-leaf-card" data-sample="tomato">
+            <div class="sample-icon">🍅</div>
+            <div class="sample-label" data-i18n="sampleTomato">Tomato Leaf Spot</div>
+          </div>
+          <div class="sample-leaf-card" data-sample="rice">
+            <div class="sample-icon">🌾</div>
+            <div class="sample-label" data-i18n="sampleRice">Paddy Blast Leaf</div>
+          </div>
+          <div class="sample-leaf-card" data-sample="cotton">
+            <div class="sample-icon">☁️</div>
+            <div class="sample-label" data-i18n="sampleCotton">Cotton Leaf Curl</div>
+          </div>
+          <div class="sample-leaf-card" data-sample="chilli">
+            <div class="sample-icon">🌶️</div>
+            <div class="sample-label" data-i18n="sampleChilli">Chilli Anthracnose</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="scannerOutput" style="margin-top: 2rem;">
+        <!-- Scanner result or animation rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Intelligent Risk Dashboard -->
+    <section id="riskSection" style="margin-bottom: 2rem;">
+      <h3 class="section-title" data-i18n="riskTitle">Intelligent Farm Analysis & Advisory</h3>
+      <p class="section-desc" data-i18n="riskSubtitle">AI risk evaluation based on your location climate, crop, and soil conditions.</p>
+
+      <div id="riskDashboard" class="risk-grid hidden">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Interactive Akinator Crop Disease Detection Wizard -->
+    <section id="akinatorSection" class="glass-card akinator-container">
+      <div id="akinatorCard">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Future Scope Innovations Section -->
+    <section id="futureSection" class="glass-card">
+      <h3 class="section-title" data-i18n="futureTitle">Future Scope & Innovations</h3>
+      <p class="section-desc" data-i18n="futureSubtitle">Next-generation features under development for AgriConnect.</p>
+
+      <div class="future-tabs">
+        <button class="future-tab active" data-target="tabWeather" data-i18n="tabWeather">Real-time Weather API</button>
+        <button class="future-tab" data-target="tabVision" data-i18n="tabVision">AI Computer Vision Scan</button>
+        <button class="future-tab" data-target="tabMarket" data-i18n="tabMarket">Market Price Predictor</button>
+        <button class="future-tab" data-target="tabDirect" data-i18n="tabDirect">Farmer-to-Buyer Direct</button>
+        <button class="future-tab" data-target="tabBot" data-i18n="tabBot">AI AgriBot Assistant</button>
+      </div>
+
+      <div id="tabWeather" class="future-content active">
+        <div class="future-preview-box">
+          <div class="future-icon">📡</div>
+          <div class="future-info">
+            <h4 data-i18n="tabWeather">Real-time Weather API</h4>
+            <p data-i18n="weatherDesc">Integrate hyper-local satellite weather telemetry, Doppler rain radar, and instant severe frost alerts.</p>
+            <span class="badge badge-info">PLANNED MODULE</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabVision" class="future-content">
+        <div class="future-preview-box">
+          <div class="future-icon">📷</div>
+          <div class="future-info">
+            <h4 data-i18n="tabVision">AI Computer Vision Scan</h4>
+            <p data-i18n="visionDesc">Scan crop leaves directly with your smartphone camera to get 99.4% instant deep learning disease recognition.</p>
+            <span class="badge badge-info">IN BETA TESTING</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabMarket" class="future-content">
+        <div class="future-preview-box">
+          <div class="future-icon">📈</div>
+          <div class="future-info">
+            <h4 data-i18n="tabMarket">Market Price Predictor</h4>
+            <p data-i18n="marketDesc">AI forecasting algorithms to predict mandis (market) commodity prices up to 30 days in advance.</p>
+            <span class="badge badge-info">DATA MODELING</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabDirect" class="future-content">
+        <div class="future-preview-box">
+          <div class="future-icon">🤝</div>
+          <div class="future-info">
+            <h4 data-i18n="tabDirect">Farmer-to-Buyer Direct</h4>
+            <p data-i18n="directDesc">Eliminate middle-men by listing your harvest directly for corporate buyers, retail chains, and exporters.</p>
+            <span class="badge badge-info">CONCEPTUAL DESIGN</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabBot" class="future-content">
+        <div class="future-preview-box">
+          <div class="future-icon">🤖</div>
+          <div class="future-info">
+            <h4 data-i18n="tabBot">AI AgriBot Assistant</h4>
+            <p data-i18n="botDesc">24/7 Voice & Chat AI agronomic advisor trained on regional agricultural university research databases.</p>
+            <span class="badge badge-info">LLM INTEGRATION</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 AgriConnect - AI-Powered Smart Agriculture Platform. B.Tech Academic Project Prototype.</p>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/indiaLocations.js"></script>
+  <script src="js/decisionTree.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
